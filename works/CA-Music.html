@@ -1,0 +1,236 @@
+---
+layout: blank
+title: "Cellular Automata Music"
+type: "work"
+thumb: thumb.png
+---
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/pixi.js/1.5.3/pixi.js"></script>
+<script src="{{ page.url }}beep/Beep.js"></script>
+<script src="{{ page.url }}beep/Beep.Note.js"></script>       
+<script src="{{ page.url }}beep/Beep.Voice.js"></script>
+<script src="{{ page.url }}beep/Beep.Sample.js"></script>
+<script src="{{ page.url }}beep/Beep.Trigger.js"></script>
+<script src="{{ page.url }}beep/Beep.Instrument.js"></script>
+<script src="{{ page.url }}usebeep.js"></script>
+<script src="{{ page.url }}cellauto.js"></script>
+<script src="{{ page.url }}examples.js"></script>
+
+
+
+ <div class="container">
+        <div class="header clearfix">
+            <h3 class="text-muted">Celluar Automata Music</h3>
+        </div>
+
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8" style="text-align: center">
+                    <canvas id="myCanvas" width="500" height="500"></canvas>
+                </div>
+                <div class="col-md-2" style="text-align: center">
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width: 100px;height: 40px">
+                            <span id="exampleName">caves</span>
+                            <span class="maze"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" >
+                            <li><a class="exampleLink" data-example="caves">caves</a></li>
+                            <!--li><a class="exampleLink" data-example="islands">islands</a></li-->
+                            <li><a class="exampleLink" data-example="cavesWithWater">cavesWithWater</a></li>
+                            <li><a class="exampleLink" data-example="rain">rain</a></li>
+                            <li><a class="exampleLink" data-example="splashes">splashes</a></li>
+                            <li><a class="exampleLink" data-example="lava">lava</a></li>
+                            <!--li><a class="exampleLink" data-example="paradise">paradise</a></li-->
+                            <!--li><a class="exampleLink" data-example="trees">trees</a></li-->
+                            <!--li><a class="exampleLink" data-example="fallingWater">fallingWater</a></li-->
+                            <li><a class="exampleLink" data-example="gameOfLife">gameOfLife</a></li>
+                            <li><a class="exampleLink" data-example="maze">maze</a></li>
+                            <li><a class="exampleLink" data-example="forestFire">forestFire</a></li>
+                            <li><a class="exampleLink" data-example="cyclic">cyclic</a></li>
+                            <!--li><a class="exampleLink" data-example="explosion">explosion</a></li-->
+                        </ul>
+                    </div>
+                    <br>
+                    <div title="Animation frames per step">
+                        <span class="glyphicon glyphicon-time"></span>&nbsp;<input id="numFrames" type="number" value="3" min="1" style="width: 48px">
+                    </div>
+                    <br>
+                    <button id="btnReloadExample" class="btn btn-default" style="width: 100px;height: 40px">Reload</button>
+                    <br>
+                    <button id="beepbutton" class="btn btn-default" style="width: 100px;height: 60px;display: none;">Beep</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row marketing">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <a><h2>Introduction</h2></a>
+                <p><a href="http://www.fourmilab.ch/cellab/manual/chap1.html">Celluar Automata (CA)</a> 
+                  are self-generating computer graphics movies. The most important near-term application of cellular automata will be to commercial computer graphics; in five years you won't be able to watch television for an hour without seeing some kind of CA. Three other key applications of cellular automata will be simulation of biological systems (artificial life), simulation of physical phenomena (heat-flow and turbulence), and the design of massively parallel computers.</p>
+
+                <p>In the program, computer screen is divided into “cells”, which are colored rectangles or dots. Each cell is repeatedly “updated” by changing its color to a new color. The net effect of the individual updates is that you see an ever-evolving sequence of screens. A graphics program of this nature is specifically called a cellular automaton when it is 1) parallel, 2) local, and 3) homogeneous.</p>
+
+
+                <p>(1) Parallelism means that the individual cell updates are performed independently. That is, we think of all of the updates being done at once.</p>
+
+                <p>(2) Locality means that when a cell is updated, its new color value is based solely on the old color values of the cell and of its nearest neighbors.</p>
+
+                <p>(3) Homogeneity means that all cells are updated according to the same rules. Typically the color values of the cell and of its nearest eight neighbors are combined according to some logico-algebraic formula, or are used to locate an entry in a preset lookup table.</p>
+
+                <p>Cellular automata can act as good models for physical, biological and sociological phenomena because each person, or cell, or small region of space “updates” itself independently (parallelism), basing its new state on the appearance of its immediate surroundings (locality) and on some generally shared laws of change (homogeneity).</p>
+            </div>
+        </div>
+
+        <div class="row marketing">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <a id="about"><h2>About this</h2></a>
+                This project is inspired by <a href="http://www.fourmilab.ch/cellab/manual/webca.html">WebCA</a> aiming to generate piano melody according to data produced by cellular automata.
+                Adopting <a href="http://beepjs.com/">beep.js</a> as piano player and <a href="http://sanojian.github.io/cellauto/">cellauto.js</a> as cellular data, the remainder task is to design a mapping between cellular states and notes.
+                In my implementation, only a state change of cell would give out a note. The tone and rhythm...en..I'm tired of typing currently ;-( 
+                Please press F12 and refer to source code for more details... ;-)
+
+            </div>
+        </div>
+
+        <div class="row" style="display: none">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <button id="btnApplyChanges" class="btn btn-default btn-success">Apply Changes</button>
+            </div>
+        </div>
+        <div class="row" style="display: none">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8" contenteditable="">
+                <pre id="exampleCode" class="prettyprint lang-js prettyprinted" spellcheck="false" style=""><span class="kwd">function</span><span class="pln"> example_cavesWithWater</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+    </span><span class="com">// FIRST CREATE CAVES</span><span class="pln">
+    </span><span class="kwd">var</span><span class="pln"> world </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CAWorld</span><span class="pun">({</span><span class="pln">
+        width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">96</span><span class="pun">,</span><span class="pln">
+        height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">64</span><span class="pun">,</span><span class="pln">
+        cellSize</span><span class="pun">:</span><span class="pln"> </span><span class="lit">6</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    world</span><span class="pun">.</span><span class="pln">registerCellType</span><span class="pun">(</span><span class="str">'wall'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        process</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">var</span><span class="pln"> surrounding </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">countSurroundingCellsWithValue</span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">,</span><span class="pln"> </span><span class="str">'wasOpen'</span><span class="pun">);</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">open </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">wasOpen </span><span class="pun">&amp;&amp;</span><span class="pln"> surrounding </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">4</span><span class="pun">)</span><span class="pln"> </span><span class="pun">||</span><span class="pln"> surrounding </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="lit">6</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        reset</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">wasOpen </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">open</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">//init</span><span class="pln">
+        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">open </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0.40</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    world</span><span class="pun">.</span><span class="pln">initialize</span><span class="pun">([</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'wall'</span><span class="pun">,</span><span class="pln"> distribution</span><span class="pun">:</span><span class="pln"> </span><span class="lit">100</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">]);</span><span class="pln">
+
+    </span><span class="com">// generate our cave, 10 steps aught to do it</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;</span><span class="lit">10</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        world</span><span class="pun">.</span><span class="pln">step</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+
+    </span><span class="kwd">var</span><span class="pln"> grid </span><span class="pun">=</span><span class="pln"> world</span><span class="pun">.</span><span class="pln">createGridFromValues</span><span class="pun">([</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln"> cellType</span><span class="pun">:</span><span class="pln"> </span><span class="str">'wall'</span><span class="pun">,</span><span class="pln"> hasProperty</span><span class="pun">:</span><span class="pln"> </span><span class="str">'open'</span><span class="pun">,</span><span class="pln"> value</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">],</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="com">// NOW USE OUR CAVES TO CREATE A NEW WORLD CONTAINING WATER</span><span class="pln">
+    world </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">CAWorld</span><span class="pun">({</span><span class="pln">
+        width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">96</span><span class="pun">,</span><span class="pln">
+        height</span><span class="pun">:</span><span class="pln"> </span><span class="lit">64</span><span class="pun">,</span><span class="pln">
+        cellSize</span><span class="pun">:</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln">
+        clearRect</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    world</span><span class="pun">.</span><span class="pln">palette </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+        </span><span class="str">'89, 125, 206, 0'</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">2</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">3</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">4</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">5</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">6</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">7</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, '</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">8</span><span class="pun">/</span><span class="lit">9</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'89, 125, 206, 1'</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'109, 170, 44, 1'</span><span class="pun">,</span><span class="pln">
+        </span><span class="str">'68, 36, 52, 1'</span><span class="pln">
+    </span><span class="pun">];</span><span class="pln">
+
+    world</span><span class="pun">.</span><span class="pln">registerCellType</span><span class="pun">(</span><span class="str">'water'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        getColor</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="com">//return 0x597DCE44;</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        process</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water </span><span class="pun">===</span><span class="pln"> </span><span class="lit">0</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="com">// already empty</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="com">// push my water out to my available neighbors</span><span class="pln">
+
+            </span><span class="com">// cell below me will take all it can</span><span class="pln">
+            </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">water </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">9</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">var</span><span class="pln"> amt </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">,</span><span class="pln"> </span><span class="lit">9</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">water</span><span class="pun">);</span><span class="pln">
+                </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">-=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">water </span><span class="pun">+=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+
+            </span><span class="com">// bottom two corners take half of what I have</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">var</span><span class="pln"> i</span><span class="pun">=</span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;=</span><span class="lit">7</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">!=</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water </span><span class="pun">&lt;</span><span class="pln"> </span><span class="lit">9</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">var</span><span class="pln"> amt </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">ceil</span><span class="pun">((</span><span class="lit">9</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water</span><span class="pun">)/</span><span class="lit">2</span><span class="pun">));</span><span class="pln">
+                    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">-=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                    neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water </span><span class="pun">+=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                    </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+            </span><span class="com">// sides take a third of what I have</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">=</span><span class="lit">3</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">&lt;=</span><span class="lit">4</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">++)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln"> </span><span class="pun">!==</span><span class="pln"> </span><span class="kwd">null</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water </span><span class="pun">&lt;</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="kwd">var</span><span class="pln"> amt </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">min</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">ceil</span><span class="pun">((</span><span class="lit">9</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water</span><span class="pun">)/</span><span class="lit">3</span><span class="pun">));</span><span class="pln">
+                    </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water</span><span class="pun">-=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                    neighbors</span><span class="pun">[</span><span class="pln">i</span><span class="pun">].</span><span class="pln">water </span><span class="pun">+=</span><span class="pln"> amt</span><span class="pun">;</span><span class="pln">
+                    </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">//init</span><span class="pln">
+        </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">water </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Math</span><span class="pun">.</span><span class="pln">floor</span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">9</span><span class="pun">);</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    world</span><span class="pun">.</span><span class="pln">registerCellType</span><span class="pun">(</span><span class="str">'rock'</span><span class="pun">,</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        isSolid</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">,</span><span class="pln">
+        getColor</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">lighted </span><span class="pun">?</span><span class="pln"> </span><span class="lit">10</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="lit">11</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">},</span><span class="pln">
+        process</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">neighbors</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">lighted </span><span class="pun">=</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">TOP</span><span class="pun">.</span><span class="pln">index</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!(</span><span class="pln">neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">TOP</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">water </span><span class="pun">===</span><span class="pln"> </span><span class="lit">9</span><span class="pun">)</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> </span><span class="pun">!</span><span class="pln">neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">TOP</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">isSolid
+                </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">]</span><span class="pln"> </span><span class="pun">&amp;&amp;</span><span class="pln"> neighbors</span><span class="pun">[</span><span class="pln">world</span><span class="pun">.</span><span class="pln">BOTTOM</span><span class="pun">.</span><span class="pln">index</span><span class="pun">].</span><span class="pln">isSolid</span><span class="pun">;</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">});</span><span class="pln">
+
+    </span><span class="com">// pass in our generated cave data</span><span class="pln">
+    world</span><span class="pun">.</span><span class="pln">initializeFromGrid</span><span class="pun">([</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'rock'</span><span class="pun">,</span><span class="pln"> gridValue</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="str">'water'</span><span class="pun">,</span><span class="pln"> gridValue</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln"> </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">],</span><span class="pln"> grid</span><span class="pun">);</span><span class="pln">
+
+    </span><span class="kwd">return</span><span class="pln"> world</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></pre>
+            </div>
+        </div>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
