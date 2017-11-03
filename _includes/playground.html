@@ -1,0 +1,100 @@
+  <main class="page-content" aria-label="Content" >
+  <section class="chapters cf">
+  <p class="title">Playground</p>
+  <div id="playground" onclick="PlayClick();">
+    <noscript>Please enable JavaScript</noscript>
+  	
+  	<div>
+  		<h3 title="Fuck!">Click here to see something interesting or surprising happening!</h3>
+  	</div>  
+
+    <div id="popup1">
+        <img src="{{ site.baseurl }}/PlayGround/xkcd1.png" width="90%">
+        <img src="{{ site.baseurl }}/PlayGround/xkcd2.png" width="90%">
+    </div>
+
+  	<div >	
+	</div>
+
+  </div>
+
+</section>
+
+   <style>
+   #playground{
+   	padding: 0px;
+  	margin: 50px auto 10px auto;
+   	background: #8470FF;
+   	height: 140px;
+   	width: 600px;
+	border: 4px solid Lavender ;
+
+	text-align: center;
+  	color: #ffffff;
+  	font-size: 1.5rem;
+   }
+
+#playground:hover{
+ cursor:pointer 
+}
+
+  #popup1{
+    padding:0;
+    border:1px black solid;
+    /*窗口的高度和宽度*/
+    /*窗口的位置*/
+    position : absolute;
+    top : 0;
+    left: 10%;
+    right: 10%;
+    /*开始时窗口不可见*/
+    display : none;
+  }
+
+
+</style>
+
+<script>
+    $(function(){
+		window.setTimeout("ChangePlayButtonColor();",2000);
+    });
+
+    var PlayGlobalBlink = false;
+    function PlayClick(){
+ 	     var randPlayNum = Math.floor(Math.random()*5);
+ 	     switch(randPlayNum){
+ 	     	case 0:
+ 	     	case 1:
+ 	     		PlayGlobalBlink = true;
+ 	     		break;
+ 	     	case 2:
+ 	     		break;
+
+ 	     	case 3:
+ 	     	case 4:
+          var winNode = $("#popup1");
+          winNode.fadeIn("slow");
+          $(".newsletter_box").hide();
+ 	     }  
+    }
+    
+	function ChangePlayButtonColor()
+	{
+		var randR = Math.floor(Math.random()*180+20);	//不想要太多红色
+		var randG = Math.floor(Math.random()*200+30);
+		var randB = Math.floor(Math.random()*200+30);
+
+	    $("#playground").css("backgroundColor","rgb(" + randR  + "," + randG  + "," + randB + ")");
+		if(PlayGlobalBlink){
+		    $("div").css("backgroundColor","rgb(" + (255-randR)  + "," + (255-randG)  + "," + (255-randB) + ")");
+		}
+		window.setTimeout("ChangePlayButtonColor();",200);
+	}
+
+function RGB()
+{
+}
+
+
+    </script>
+</section> <!-- End Section Comment Area -->

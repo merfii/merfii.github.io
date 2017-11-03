@@ -1,9 +1,38 @@
-
-<section id="banner" data-vide-bg="{{site.baseurl}}/assets/video/{% if site.video %}{{ site.video }}{% endif %}" data-vide-options="posterType: jpg, loop: true, muted: false, position: 50% 50%">
+<!-- Head Video Player -->
+<section id="banner" data-vide-bg="{% if site.video %}{{site.baseurl}}/assets/video/{{ site.video }} {% else %}https://github.com/merfii/merfii.github.io/blob/master/assets/video/Head.mp4?raw=true{% endif %}" data-vide-options="posterType: jpg, loop: true, muted: true, position: 50% 50%">
   <div class="wrapper">
-    <div class="content">
-      <h1 class="title">{% if site.banner-title %}{{ site.banner-title }}{% else %}Enjoy Freedom{% endif %}</h1>
-      <h2 class="sub_title">{% if site.banner-desc %}{{ site.banner-desc }}{% else %}"A journey of a thousand miles begins with a single step". — Lao Tzu{% endif %}</h2>
+    <div class="content" style="position:relative;">
+  <!--     <h1 class="title">{% if site.banner-title %}{{ site.banner-title }}{% else %}This is banner-title{% endif %}</h1>
+      <h1 class="title"><h1>-->
+      <div style="height:120px;padding:0;margin:0 auto 0 auto;"></div>
+      <h2 class="sub_title" style="position:absolute;bottom:0;right:0">{% if site.banner-desc %}{{ site.banner-desc }}{% else %}This is banner-desc{% endif %}</h2> 
     </div>
   </div>
 </section> <!-- End Section Banner -->
+
+
+<div id="MuteButton">
+	<i class="fa fa-volume-off fa-lg"></i> Muted
+</div>
+
+<!-- 静音按钮 -->
+<style>
+#MuteButton{
+	text-align: center;
+	vertical-align: middle;
+/*	background-color: gray;*/
+	position: relative;
+	left: 0px;
+	top: 0px;
+	width: 120px;
+	height: 35px;
+	padding: 8px;
+	color: #CCFFFF;
+}
+
+#MuteButton:hover{
+ cursor:pointer 
+}
+
+
+</style>

@@ -5,13 +5,22 @@ layout: default
 
   {% include banner.html %}
 
-  <main class="page-content" aria-label="Content">
+  {% include aboutme.html %}
+
+  {% include works.html %}
+   <!-- 注意这里隐藏了 -->
+  <main class="page-content" aria-label="Content" style="display:none;"> 
   <section class="chapters cf">
-      <div class="wrapper">
+ 
+      <div class="wrapper" >
       {{ content }}
       </div>
   </section>
   </main>
+  {% include gallery.html %}
+
+  {% include playground.html %}
+
   {% include newsletter.html %}
 
   {% include pagination.html %}

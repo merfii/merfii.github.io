@@ -1,0 +1,39 @@
+
+  <main class="page-content" aria-label="Content" id="main-work">
+  <section class="chapters cf">
+      <p class="title">Works & Projects</p>
+      <div class="wrapper">
+        {% for work in site.pages %}
+          {% if work.type == "work" %}
+          <div class="chapter">
+            <a href="{{ work.url }}">
+              {% if work.thumb %}
+              <img src= "{{ work.url | append: work.thumb | prepend: site.baseurl }}" alt="{{ work.title }}">
+              {% else %}
+              <img src= {{ "assets/img/work.png" | prepend: site.baseurl }} alt="{{ work.title }}">
+              {% endif %}              
+            </a>
+            <div class="chapter_inner">
+              <h3 class="chapter_title">{{work.title}}</h3>
+            </div>
+          </div>
+
+          {% endif %}
+        {% endfor %}      
+      </div>
+  </section>
+  </main>
+
+<!-- 空白一条 -->
+  <div style="height:100px;margin:50 0 50 0;background:#ccccd0;"></div>
+  
+
+
+<!--
+  <a href="{{ "/works/" | prepend: site.baseurl | append: work.filename }}">
+    {% if work.thumb %}
+    <img src={{ "/works/" | prepend: site.baseurl | append: work.filename | append: '/' | append: work.thumb }} alt="{{work.title}}">
+    {% else %}
+    <img src={{ "/works/" | prepend: site.baseurl | append: work.filename | append: '/' | append: "thumb.jpg" }} alt="{{work.title}}">
+    {% endif %}              
+-->
