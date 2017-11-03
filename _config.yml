@@ -1,31 +1,36 @@
 logo: # add logo name
-title: Mafii's zone
+title: Bef - Enjoy Freedom
 description: > # this means to ignore newlines until "baseurl:"
-  A coder & robotics engineer, with eyes on arts.
-permalink: '/:title/'
-baseurl:  # the subpath of your site, e.g. /blog
-url: "mafii.me" # the base hostname & protocol for your site, e.g. http://example.com
-github: ""	#github project path
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+permalink: ':title/'
+baseurl: "/bef" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Banner settings
-video: # add banner video. Add your video file to the folder video
-video_online: https://vimeo.com/241112969
-banner-desc: Creativity is allowing yourself to make mistakes.<br>Art is knowing which ones to keep.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——Scott Adams
-author-desc: Coding | Robotics | Installation
-author-pic: face.jpg # your photo
-author-name: Mafii # your name
-about-author: # about author
-email: buaamzf@gmail.com; buaamzf@qq.com;
-phone: (+86)18810226981
-website: http://mafii.me # you website
+video: mountains.mp4 # add banner video. Add your video file to the folder video
+banner-title: # add banner title
+banner-desc: # add banner description
 
-# Social link, at the footer of about page
-github_url: https://github.com/merfii
-twitter_url:   https://twitter.com/Mafii0369 
+# Author settings
+author-pic: face.jpg # your photo
+author-name: # your name
+about-author: # about author
+email: your-email@domain.com # your email
+phone: (496)-169-6557 # your pnone number
+website: https://dwayne.example.com # you website
+
+# Social link
 google_url:    # add url link
+twitter_url:   # add url link 
+instagram_url: # add url link
+pinterest_url: # add url link
+dribbble_url:  # add url link
 facebook_url:  # add url link
-flickr_url: https://www.flickr.com/159347550@N03
-blog_url: http://blog.csdn.net/hopefullight
+
+# Disqus
+discus_identifier: mr-brown # add your discus identifier
 
 # Newsletter
 mailchimp: # add your MailChimp form identifier. For example - blogenjoyfreedom.us16.list-manage.com/subscribe/post?u=cd56155d76ddeeb4c0bc4d080&amp;id=7a526cd13e
@@ -34,7 +39,7 @@ mailchimp: # add your MailChimp form identifier. For example - blogenjoyfreedom.
 analytics:
 
 # Paginate
-paginate: 25
+paginate: 12
 paginate_path: /page:num/
 
 # Build settings
@@ -44,17 +49,4 @@ gems:
   - jekyll-sitemap
 
 include: [_pages]
-
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "unfinished","Others"]
-
-skills:
-- {name: Communication, value: '9'}
-- {name: Organization, value: '7'}
-- {name: Learning, value: '10'}
-- {name: Teaching, value: '6'}
-- {name: Planning, value: '7'}
-- {name: Visual Design, value: '5'}
-- {name: UX Design, value: '8'}
-- {name: Programming, value: '6'}
-
-#-------------------------------
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
