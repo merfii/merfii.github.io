@@ -12,8 +12,8 @@ This project was originally aimed at intergrating indoor cleanner with air purif
 ![Disassemble2]({{page.url}}dis2.jpg)
 
 ![move]({{page.url}}move.jpg)
-![cleaner1]({{page.url}}cleaner1.jpg)
-![cleaner2]({{page.url}}cleaner2.jpg)
+![cleaner1]({{page.url}}c1.jpg)
+![cleaner2]({{page.url}}c2.jpg)
 
 I'm still insterested in and focusing on the news of SLAM algorithms since it's an essential technique for  driverless vihicles. I tried orbSLAM and Cartographer immediately after their release.
 
