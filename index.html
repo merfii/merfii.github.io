@@ -7,6 +7,9 @@ layout: main
     <a href="{{post.url | prepend: site.baseurl}}">
       {% if post.img %}
       <img src={{ "/assets/img/" | prepend: site.baseurl | append: post.img }} alt="{{post.title}}">
+      {% else %}
+      <img src={{ "/assets/img/" | prepend: site.baseurl | append: "blog-default.jpg" }} alt="{{post.title}}">
+
       {% endif %}
     </a>
     <div class="chapter_inner">
