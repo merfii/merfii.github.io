@@ -1,6 +1,6 @@
 var g_nextExample = '';
 var g_currentExample = '';
-var animate_timer = 200;
+var animate_timer = 800;
 var g_loop;
 $(function() {
 	

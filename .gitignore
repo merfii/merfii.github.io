@@ -1,5 +1,7 @@
 _site
 .sass-cache
 .jekyll-metadata
+Others/
 node_modules/
+unfinished/
 yarn.lock

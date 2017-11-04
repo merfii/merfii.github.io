@@ -161,6 +161,20 @@ img {
     height: 140px;
   }
 
+.button_back {
+  color: #c0334a;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-style: italic;
+  display: inline-block;
+  margin: 1rem 1rem;
+  padding-left: 0.5rem;
+  font-weight: 700;
+}
+
+.button_back:hover {
+  text-decoration: underline;
+}
 
 /* =======================
  * specific page

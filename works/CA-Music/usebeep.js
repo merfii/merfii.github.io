@@ -1,26 +1,13 @@
-var inst;
+var instr;
 $(function() {
-    inst = new Beep.Instrument(); 
+    instr = new Beep.Instrument(); 
     $('#beepbutton').on('click', function (evt) {
  
-melody = [
-     1/4, '4C',  6/4,//  Do[e]  
-     1/4, '4D',  2/4,//  a  
-     1/4, '4E',  5/4,//  deer  
-     1/4, '4C',  2/4,//  A  
-     1/4, '4E',  4/4,//  fe  
-     4/4, '4C',  3/4,//  male  
-     2/4, '4E',  4/4,//  deer
-     ];
-    
 	//var note = new Beep.Note("C");
 	//var voice = new Beep.Voice();
 	//voice.play(note);
-	inst.play('4A');
-
-//    setTimeout("g_loop();", animate_timer)
-	
-});
+	instr.play('4A');	
+    });
 
 });
 
@@ -28,16 +15,16 @@ melody = [
 
 function PlayBeepSound(grid){
     var note = Bools3ToNote(grid[20][15].sound, grid[20][16].sound, grid[21][15].sound, grid[21][16].sound);
-    DelayThenPlay(0, note);
+    DelayThenPlay(0, note, 200);
 
-    not = Bools3ToNote(grid[40][15].sound, grid[40][16].sound, grid[41][15].sound, grid[41][16].sound);
-    DelayThenPlay(200, not);
+    note = Bools3ToNote(grid[40][15].sound, grid[40][16].sound, grid[41][15].sound, grid[41][16].sound);
+    DelayThenPlay(200, note, 200);
 
-    not = Bools3ToNote(grid[20][30].sound, grid[20][31].sound, grid[21][30].sound, grid[21][31].sound);
-    DelayThenPlay(400, not);
+    note = Bools3ToNote(grid[20][30].sound, grid[20][31].sound, grid[21][30].sound, grid[21][31].sound);
+    DelayThenPlay(400, note, 100);
 
-    not = Bools3ToNote(grid[40][30].sound, grid[40][31].sound, grid[41][30].sound, grid[41][31].sound);
-    DelayThenPlay(600, not);
+    note = Bools3ToNote(grid[40][30].sound, grid[40][31].sound, grid[41][30].sound, grid[41][31].sound);
+    DelayThenPlay(600, note, 100);
 }
 
 function Bools3ToNote(a,b,c,d){
@@ -101,15 +88,15 @@ function Bools3ToNote(a,b,c,d){
    }
 }
 
-function DelayThenPlay(delay, note){
-    inst.pause();
+function DelayThenPlay(delay, note, length){
+    instr.pause();
     setTimeout(function(){
-        PalyAndStop(note);
+        PalyAndStop(note, length);
     }, delay);
 }
 
 
-function PalyAndStop(note){
-    inst.play(note);
-    setTimeout(function(){inst.pause();}, 140);
+function PalyAndStop(note, length){
+    instr.play(note);
+    //setTimeout(function(){instr.pause();}, length);
 }

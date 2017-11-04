@@ -3902,12 +3902,12 @@ cite {
 }
 
 .button_back {
-  color: #ffffff;
+  color: #c0334a;
   font-size: 1.1rem;
   text-decoration: none;
   font-style: italic;
   display: inline-block;
-  margin: 0.7rem 1rem;
+  margin: 1rem 1rem;
   padding-left: 0.5rem;
   font-weight: 700;
 }

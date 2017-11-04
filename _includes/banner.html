@@ -1,11 +1,12 @@
 <!-- Head Video Player -->
-<section id="banner" data-vide-bg="{% if site.video %}{{site.baseurl}}/assets/video/{{ site.video }} {% else %}https://github.com/merfii/merfii.github.io/blob/master/assets/video/Head.mp4?raw=true{% endif %}" data-vide-options="posterType: jpg, loop: true, muted: true, position: 50% 50%">
+<section id="banner" data-vide-bg="
+{% if site.video.local %}{{site.baseurl}}assets/video/{{site.video.local}}{% else %}{{site.video.git}}{% endif %}" data-vide-options="posterType: jpg, loop: true, muted: true, position: 50% 50%">
   <div class="wrapper">
     <div class="content" style="position:relative;">
   <!--     <h1 class="title">{% if site.banner-title %}{{ site.banner-title }}{% else %}This is banner-title{% endif %}</h1>
       <h1 class="title"><h1>-->
       <div style="height:120px;padding:0;margin:0 auto 0 auto;"></div>
-      <h2 class="sub_title" style="position:absolute;bottom:0;right:0">{% if site.banner-desc %}{{ site.banner-desc }}{% else %}This is banner-desc{% endif %}</h2> 
+      <h2 class="sub_title" style="position:absolute;bottom:-70px;right:0">{% if site.banner-desc %}{{ site.banner-desc }}{% else %}This is banner-desc{% endif %}</h2> 
     </div>
   </div>
 </section> <!-- End Section Banner -->

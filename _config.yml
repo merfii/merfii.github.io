@@ -8,8 +8,10 @@ url: "mafii.me" # the base hostname & protocol for your site, e.g. http://exampl
 github: ""	#github project path
 
 # Banner settings
-video: # add banner video. Add your video file to the folder video
-video_online: https://vimeo.com/241112969
+video:
+ local: # "head"
+ git: "mp4:https://github.com/merfii/merfii.github.io/blob/master/assets/video/Head.mp4?raw=true, ogv: https://github.com/merfii/merfii.github.io/blob/master/assets/video/Head.ogv?raw=true, poster: https://raw.githubusercontent.com/merfii/merfii.github.io/master/assets/video/head.jpg"
+ vimeo: https://vimeo.com/241112969
 banner-desc: Creativity is allowing yourself to make mistakes.<br>Art is knowing which ones to keep.&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp——Scott Adams
 author-desc: Coding | Robotics | Installation
 author-pic: face.jpg # your photo

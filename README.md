@@ -1,5 +1,7 @@
 This is Mafii's homepage.
 
+Based on templates
+- [bef](http://artemsheludko.pw/bef/)
+- [Artists Theme](https://devtips.github.io/Artists-Theme/)
 
-Based on template [bef](http://artemsheludko.pw/bef/)
 Supported by [jekyll](https://jekyllrb.com/)
