@@ -3,8 +3,6 @@ $(function(){
 	initMuteButton();
 });
 
-
-
 function initScrollTop(){
 	// Scroll Top
 	$('.top').click(function() {
