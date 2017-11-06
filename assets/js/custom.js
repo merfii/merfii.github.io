@@ -1,7 +1,9 @@
 $(function(){
 	initScrollTop();
 	initMuteButton();
-})
+});
+
+
 
 function initScrollTop(){
 	// Scroll Top
@@ -21,7 +23,7 @@ function initMuteButton(){
 	// Video mute toggle
 	$('#MuteButton').click(function() {
 		// Get instance of the plugin
-		var instance = $('#banner').data('vide');
+		var instance = $('#vide').data('vide');
 		// Get video element of the background. Do what you want.
 		videob = instance.getVideoObject();
 

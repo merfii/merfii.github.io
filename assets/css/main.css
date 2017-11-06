@@ -3968,11 +3968,11 @@ cite {
 }
 
 #banner .content {
-  padding: 12rem 0 12rem 0;
+  padding: 0;
 }
 
 #banner .content .title, #banner .content .sub_title {
-  text-align: center;
+  text-align: right;
   color: #ffffff;
 }
 
@@ -3982,16 +3982,13 @@ cite {
 }
 
 #banner .content .sub_title{
+  height: 0;
+  position:relative;top: -84px;
   font-weight: 400;
-  font-size: 1.35rem;
-  margin: 0 auto 2rem auto;
+  font-size: 1.3rem;
+  margin: 0 auto ;
   line-height: 2.5rem;
   font-style: italic;
-}
-
-#banner .sub_title{
- position: relative;
- bottom: 0;
 }
 
 .chapters {
